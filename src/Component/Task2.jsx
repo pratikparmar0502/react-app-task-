@@ -75,9 +75,11 @@ const Task2 = () => {
             <td onClick={() => click(8)}>{board[8]}</td>
           </tr>
         </table>
-        <button className="btn-reset" onClick={reset}>
-          Reset
-        </button>
+        <div className="btn-container">
+          <button className="btn-reset" onClick={reset}>
+            Reset
+          </button>
+        </div>
       </Container>
     </>
   );

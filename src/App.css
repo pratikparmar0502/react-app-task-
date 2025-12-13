@@ -123,11 +123,17 @@ table td {
   margin-top: 50px;
 }
 
+.btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
 .btn-reset {
-  font-size: 25px;
-  padding: 7px 20px;
-  margin-left: 595px;
-  margin-top: 40px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid black;
+  cursor: pointer;
 }
 
 .status-message {
@@ -135,4 +141,11 @@ table td {
   text-align: center;
   margin-top: 20px;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  table td {
+    padding: 30px;
+  }
+
 }
