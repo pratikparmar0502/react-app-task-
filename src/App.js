@@ -3,6 +3,7 @@ import InputHandle from "./Component/InputHandle";
 import Task1 from "./Component/Task1";
 import Task2 from "./Component/Task2";
 import Task3 from "./Component/Task3";
+import Task4 from "./Component/Task4";
 import About from "./Router/About";
 import Contact from "./Router/Contact";
 // import Footer from "./Router/Footer";
@@ -101,7 +102,8 @@ function App() {
         {/* <InputHandle></InputHandle> */}
         {/* <Task1></Task1> */}
         {/* <Task2 /> */}
-        <Task3></Task3>
+        {/* <Task3></Task3> */}
+        <Task4></Task4>
       </div>
       {/* <Router>
         <Switch>

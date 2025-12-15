@@ -152,6 +152,21 @@ table td {
 
 /* ====================== Task3.jsx ===================================================== */
 
+/* table {
+  font-size: 20px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+table th,
+table td {
+  border: 2px solid black;
+  padding: 10px 15px;
+  text-align: center;
+} */
+
+/* ==================== Task4.jsx =====================================================  */
+
 table {
   font-size: 20px;
   margin: auto;
@@ -163,4 +178,14 @@ table td {
   border: 2px solid black;
   padding: 10px 15px;
   text-align: center;
+}
+
+input {
+  padding: 8px 15px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+input:nth-child(3) {
+  width: 135px;
 }
