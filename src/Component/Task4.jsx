@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 
 const Task4 = () => {
   const [list, setList] = useState([]);
+
   const ini = {
     rollNo: "",
     studentName: "",
@@ -16,8 +17,7 @@ const Task4 = () => {
   const f = useFormik({
     initialValues: ini,
     onSubmit: (values) => {
-      // console.log(values);
-
+      console.log(values);
       setList([...list, values]);
       f.handleReset();
     },
@@ -37,15 +37,15 @@ const Task4 = () => {
 
     const gradeValue = Math.floor(grades);
 
-    if (gradeValue >= 90) {
+    if (gradeValue >= 90 && gradeValue <= 100) {
       return "A+";
-    } else if (gradeValue >= 80) {
+    } else if (gradeValue >= 80 && gradeValue <= 89) {
       return "A";
-    } else if (gradeValue >= 70) {
+    } else if (gradeValue >= 70 && gradeValue <= 79) {
       return "B";
-    } else if (gradeValue >= 60) {
+    } else if (gradeValue >= 55 && gradeValue <= 69) {
       return "C";
-    } else if (gradeValue >= 50) {
+    } else if (gradeValue >= 34 && gradeValue <= 55) {
       return "D";
     } else {
       return "F";
@@ -58,6 +58,19 @@ const Task4 = () => {
 
   const max = (i) => {
     return Math.max(Number(i.maths), Number(i.gujarati), Number(i.english));
+  };
+
+  const handleDelete = (index) => {
+    let copyData = [...list];
+    copyData.slice(index, 1);
+    setList(copyData);
+  };
+
+  const handleEdit = (index) => {
+    const studentToEdit = list[index];
+    f.setValues(studentToEdit);
+    const updatedList = list.filter((_, idx) => idx !== index);
+    setList(updatedList);
   };
 
   return (
@@ -151,6 +164,10 @@ const Task4 = () => {
                 <td>{grade(i)}</td>
                 <td>{min(i)}</td>
                 <td>{max(i)}</td>
+                <td>
+                  <button onClick={() => handleEdit(index)}>Edit</button>
+                  <button onClick={() => handleDelete(index)}>Delete</button>
+                </td>
               </tr>
             ))}
           </table>

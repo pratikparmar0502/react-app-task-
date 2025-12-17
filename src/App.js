@@ -1,9 +1,11 @@
 import "./App.css";
 import InputHandle from "./Component/InputHandle";
+import ReactApi from "./Component/ReactApi";
 import Task1 from "./Component/Task1";
 import Task2 from "./Component/Task2";
 import Task3 from "./Component/Task3";
 import Task4 from "./Component/Task4";
+import Task5 from "./Component/Task5";
 import About from "./Router/About";
 import Contact from "./Router/Contact";
 // import Footer from "./Router/Footer";
@@ -98,12 +100,13 @@ function App() {
         {/* <StateTask2 /> */}
         {/* <Bootstrap></Bootstrap> */}
         {/* <PropsExample></PropsExample> */}
-
         {/* <InputHandle></InputHandle> */}
         {/* <Task1></Task1> */}
         {/* <Task2 /> */}
         {/* <Task3></Task3> */}
-        <Task4></Task4>
+        {/* <Task4></Task4> */}
+        {/* <Task5></Task5> */}
+        <ReactApi />
       </div>
       {/* <Router>
         <Switch>
