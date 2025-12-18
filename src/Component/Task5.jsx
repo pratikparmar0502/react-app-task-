@@ -4,6 +4,8 @@ import { Container } from "react-bootstrap";
 
 const Task5 = () => {
   const [list, setList] = useState([]);
+  // const [editIndex, setEditIndex] = useState(null);
+
   const ini = {
     rollno: "",
     studentname: "",
@@ -23,6 +25,14 @@ const Task5 = () => {
       alert("Please fill all the fields");
     }
     console.log(values);
+
+    // if (editIndex != null) {
+    //   const updatedList = [...list];
+    //   updatedList[editIndex] = values;
+    //   setList(updatedList);
+    //   setEditIndex(null);
+    // } else {
+    // }
     setList((prev) => [...prev, values]);
     resetForm();
     return;
@@ -60,6 +70,17 @@ const Task5 = () => {
 
   const max = (i) => {
     return Math.max(Number(i.maths), Number(i.science), Number(i.english));
+  };
+
+  const Edit = (index) => {
+    // setEditIndex(index);
+    // f.setValues(list[index]);
+  };
+
+  const Delete = (index) => {
+    let copyData = [...list];
+    copyData.splice(index, 1);
+    setList(copyData);
   };
 
   return (
@@ -125,6 +146,12 @@ const Task5 = () => {
               <td>{grade(i)}</td>
               <td>{min(i)}</td>
               <td>{max(i)}</td>
+              <td>
+                <button onClick={() => Edit(index, i)}>Edit</button>
+              </td>
+              <td>
+                <button onClick={() => Delete(index)}>Delete</button>
+              </td>
             </tr>
           ))}
         </table>

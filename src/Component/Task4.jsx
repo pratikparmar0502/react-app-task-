@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 
 const Task4 = () => {
   const [list, setList] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
 
   const ini = {
     rollNo: "",
@@ -16,9 +17,16 @@ const Task4 = () => {
 
   const f = useFormik({
     initialValues: ini,
+    enableReinitialize: true,
     onSubmit: (values) => {
-      console.log(values);
-      setList([...list, values]);
+      if (editIndex != null) {
+        const updatedList = [...list];
+        updatedList[editIndex] = values;
+        setList(updatedList);
+        setEditIndex(null);
+      } else {
+        setList([...list, values]);
+      }
       f.handleReset();
     },
   });
@@ -62,15 +70,13 @@ const Task4 = () => {
 
   const handleDelete = (index) => {
     let copyData = [...list];
-    copyData.slice(index, 1);
+    copyData.splice(index, 1);
     setList(copyData);
   };
 
   const handleEdit = (index) => {
-    const studentToEdit = list[index];
-    f.setValues(studentToEdit);
-    const updatedList = list.filter((_, idx) => idx !== index);
-    setList(updatedList);
+    setEditIndex(index);
+    f.setValues(list[index]);
   };
 
   return (
