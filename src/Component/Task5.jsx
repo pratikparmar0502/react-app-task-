@@ -4,15 +4,12 @@ import { Container } from "react-bootstrap";
 
 const Task5 = () => {
   const [list, setList] = useState([]);
-  // const [editIndex, setEditIndex] = useState(null);
+  const [editIndex, setEditIndex] = useState(null);
 
-  const ini = {
-    rollno: "",
-    studentname: "",
-    maths: "",
-    science: "",
-    english: "",
-  };
+  const initialValues =
+    editIndex !== null
+      ? list[editIndex]
+      : { rollno: "", studentname: "", maths: "", science: "", english: "" };
 
   const handleSubmit = (values, { resetForm }) => {
     if (
@@ -23,19 +20,19 @@ const Task5 = () => {
       !values.english
     ) {
       alert("Please fill all the fields");
+      return;
     }
-    console.log(values);
+    // console.log(values);
 
-    // if (editIndex != null) {
-    //   const updatedList = [...list];
-    //   updatedList[editIndex] = values;
-    //   setList(updatedList);
-    //   setEditIndex(null);
-    // } else {
-    // }
-    setList((prev) => [...prev, values]);
+    if (editIndex !== null) {
+      const updatedList = [...list];
+      updatedList[editIndex] = values;
+      setList(updatedList);
+      setEditIndex(null);
+    } else {
+      setList((prev) => [...prev, values]);
+    }
     resetForm();
-    return;
   };
 
   const total = (i) => {
@@ -43,8 +40,15 @@ const Task5 = () => {
   };
 
   const percentage = (i) => {
-    const calculatedTotal = total(i);
-    return Math.round(calculatedTotal / 3);
+    if (
+      Number(i.maths) <= 33 ||
+      Number(i.science) <= 33 ||
+      Number(i.english) <= 33
+    ) {
+      return "0";
+    } else {
+      return Math.round(total(i) / 3);
+    }
   };
 
   const grade = (i) => {
@@ -72,10 +76,7 @@ const Task5 = () => {
     return Math.max(Number(i.maths), Number(i.science), Number(i.english));
   };
 
-  const Edit = (index) => {
-    // setEditIndex(index);
-    // f.setValues(list[index]);
-  };
+  const Edit = (index) => setEditIndex(index);
 
   const Delete = (index) => {
     let copyData = [...list];
@@ -86,7 +87,11 @@ const Task5 = () => {
   return (
     <>
       <Container className="my-4 text-center">
-        <Formik initialValues={ini} onSubmit={handleSubmit}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          enableReinitialize={true}
+        >
           <Form>
             <Field name="rollno" type="text" className="w-25"></Field>
             <br />
@@ -117,7 +122,7 @@ const Task5 = () => {
             ></Field>
             <br />
             <button type="submit" className="py-2 px-3 fw-bold w-25 fs-5">
-              Add
+              {editIndex !== null ? "Update Student" : "Add Student"}
             </button>
           </Form>
         </Formik>
@@ -147,7 +152,7 @@ const Task5 = () => {
               <td>{min(i)}</td>
               <td>{max(i)}</td>
               <td>
-                <button onClick={() => Edit(index, i)}>Edit</button>
+                <button onClick={() => Edit(index)}>Edit</button>
               </td>
               <td>
                 <button onClick={() => Delete(index)}>Delete</button>
