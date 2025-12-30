@@ -1,55 +1,57 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
 
 const ReactApi = () => {
-  const [list1, setList1] = useState([""]);
-  const [list2, setList2] = useState([""]);
-  const [list3, setList3] = useState([""]);
+  // const [list1, setList1] = useState([""]);
+  // const [list2, setList2] = useState([""]);
+  // const [list3, setList3] = useState([""]);
 
   useEffect(() => {
-    ProductsData();
-    QuotesData();
-    TodosData();
+    // ProductsData();
+    // QuotesData();
+    // TodosData();
   }, []);
 
-  function ProductsData() {
-    axios
-      .get("https://dummyjson.com/products")
-      .then((res) => {
-        console.log(res.data.products);
-        setList1(res.data.products);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // function ProductsData() {
+  //   axios
+  //     .get("https://dummyjson.com/products")
+  //     .then((res) => {
+  //       console.log(res.data.products);
+  //       setList1(res.data.products);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 
-  function QuotesData() {
-    axios
-      .get("https://dummyjson.com/quotes")
-      .then((res) => {
-        console.log(res.data.quotes);
-        setList2(res.data.quotes);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-  function TodosData() {
-    axios
-      .get("https://dummyjson.com/todos")
-      .then((res) => {
-        console.log(res.data.todos);
-        setList3(res.data.todos);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // function QuotesData() {
+  //   axios
+  //     .get("https://dummyjson.com/quotes")
+  //     .then((res) => {
+  //       console.log(res.data.quotes);
+  //       setList2(res.data.quotes);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+  // function TodosData() {
+  //   axios
+  //     .get("https://dummyjson.com/todos")
+  //     .then((res) => {
+  //       console.log(res.data.todos);
+  //       setList3(res.data.todos);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+
   return (
     <>
-      <section style={{ padding: "20px 0px" }}>
+      {/* <section style={{ padding: "20px 0px" }}>
         <h1 style={{ textAlign: "center" }}>Products Data</h1>
         <Container>
           <table border={1}>
@@ -79,8 +81,8 @@ const ReactApi = () => {
             </tbody>
           </table>
         </Container>
-      </section>
-      <section style={{ padding: "20px 0px" }}>
+      </section> */}
+      {/* <section style={{ padding: "20px 0px" }}>
         <h1 style={{ textAlign: "center" }}>Quotes Data</h1>
         <Container>
           <table border={1}>
@@ -102,8 +104,8 @@ const ReactApi = () => {
             </tbody>
           </table>
         </Container>
-      </section>
-      <section style={{ padding: "20px 0px" }}>
+      </section> */}
+      {/* <section style={{ padding: "20px 0px" }}>
         <h1 style={{ textAlign: "center" }}>Todos Data</h1>
         <Container>
           <table border={1}>
@@ -111,7 +113,6 @@ const ReactApi = () => {
               <tr>
                 <th>id</th>
                 <th>todo</th>
-                {/* <th>completed</th> */}
                 <th>userId</th>
               </tr>
             </thead>
@@ -120,14 +121,13 @@ const ReactApi = () => {
                 <tr key={index}>
                   <td>{i.id}</td>
                   <td>{i.todo}</td>
-                  {/* <td>{i.completed}</td> */}
                   <td>{i.userId}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </Container>
-      </section>
+      </section> */}
     </>
   );
 };

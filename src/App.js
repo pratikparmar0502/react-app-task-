@@ -1,5 +1,6 @@
 import "./App.css";
 import InputHandle from "./Component/InputHandle";
+import Postman from "./Component/Postman";
 import ReactApi from "./Component/ReactApi";
 import Task1 from "./Component/Task1";
 import Task2 from "./Component/Task2";
@@ -25,6 +26,8 @@ function App() {
   return (
     <>
       <div className="App main">
+        <Postman></Postman>
+
         {/* <table border={2}>
         <tr>
           <td>No</td>
@@ -105,7 +108,7 @@ function App() {
         {/* <Task2 /> */}
         {/* <Task3></Task3> */}
         {/* <Task4></Task4>/ */}
-        <Task5></Task5>
+        {/* <Task5></Task5> */}
         {/* <ReactApi /> */}
       </div>
       {/* <Router>
