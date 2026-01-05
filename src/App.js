@@ -1,4 +1,5 @@
 import "./App.css";
+import ImageApi from "./Component/ImageApi";
 import InputHandle from "./Component/InputHandle";
 import Postman from "./Component/Postman";
 import ReactApi from "./Component/ReactApi";
@@ -26,7 +27,8 @@ function App() {
   return (
     <>
       <div className="App main">
-        <Postman></Postman>
+        {/* <Postman></Postman> */}
+        <ImageApi></ImageApi>
 
         {/* <table border={2}>
         <tr>
