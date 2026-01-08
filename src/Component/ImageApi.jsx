@@ -59,7 +59,6 @@ const ImageApi = () => {
   return (
     <Container className="mt-5">
       <Row className="justify-content-center">
-        {/* Column logic: 12 units on mobile (full width), 6 units on desktop */}
         <Col xs={12} md={8} lg={6} className="text-center">
           <h1 className="mb-4">Image Upload</h1>
 
@@ -67,7 +66,7 @@ const ImageApi = () => {
             {({ setFieldValue }) => (
               <FormikForm>
                 <div className="mb-3 text-start">
-                  <label className="form-label fw-bold">Name/ID</label>
+                  <label className="form-label fw-bold">Name</label>
                   <Field
                     className="form-control"
                     placeholder="Enter Name"
@@ -101,7 +100,6 @@ const ImageApi = () => {
       <Row>
         <Col xs={12}>
           <h3 className="mb-3">Uploaded Gallery</h3>
-          {/* responsive prop adds horizontal scroll on mobile */}
           <Table responsive striped bordered hover>
             <thead className="table-dark">
               <tr>
@@ -119,7 +117,7 @@ const ImageApi = () => {
                         src={item.image}
                         alt={item.name}
                         className="img-thumbnail"
-                        style={{ maxWidth: "120px", height: "auto" }}
+                        style={{ maxWidth: "150px", height: "auto" }}
                         onError={(e) => {
                           e.target.src = "https://via.placeholder.com/100";
                         }}

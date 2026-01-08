@@ -1,4 +1,6 @@
 import "./App.css";
+import CardsApi from "./Component/CardsApi";
+import Context from "./Component/Context";
 import ImageApi from "./Component/ImageApi";
 import InputHandle from "./Component/InputHandle";
 import Postman from "./Component/Postman";
@@ -28,7 +30,9 @@ function App() {
     <>
       <div className="App main">
         {/* <Postman></Postman> */}
-        <ImageApi></ImageApi>
+        {/* <ImageApi></ImageApi> */}
+        <CardsApi></CardsApi>
+        {/* <Context></Context> */}
 
         {/* <table border={2}>
         <tr>
