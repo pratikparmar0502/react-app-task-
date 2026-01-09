@@ -31,8 +31,8 @@ function App() {
       <div className="App main">
         {/* <Postman></Postman> */}
         {/* <ImageApi></ImageApi> */}
-        <CardsApi></CardsApi>
-        {/* <Context></Context> */}
+        {/* <CardsApi></CardsApi> */}
+        <Context></Context>
 
         {/* <table border={2}>
         <tr>
