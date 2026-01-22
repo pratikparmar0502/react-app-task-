@@ -1,20 +1,24 @@
 import "./App.css";
-import CardsApi from "./Component/CardsApi";
-import Context from "./Component/Context";
-import ImageApi from "./Component/ImageApi";
-import InputHandle from "./Component/InputHandle";
-import Postman from "./Component/Postman";
-import ReactApi from "./Component/ReactApi";
-import Task1 from "./Component/Task1";
-import Task2 from "./Component/Task2";
-import Task3 from "./Component/Task3";
-import Task4 from "./Component/Task4";
-import Task5 from "./Component/Task5";
-import About from "./Router/About";
-import Contact from "./Router/Contact";
+// import UseCallback from "./Component/Hooks/UseCallback";
+import UseMemo from "./Component/Hooks/UseMemo";
+// import UserRef from "./Component/Hooks/UserRef";
+// import CardsApi from "./Component/CardsApi";
+// import Context from "./Component/Context";
+// import ReduxEx from "./Component/Hooks/ReduxEx";
+// import ImageApi from "./Component/ImageApi";
+// import InputHandle from "./Component/InputHandle";
+// import Postman from "./Component/Postman";
+// import ReactApi from "./Component/ReactApi";
+// import Task1 from "./Component/Task1";
+// import Task2 from "./Component/Task2";
+// import Task3 from "./Component/Task3";
+// import Task4 from "./Component/Task4";
+// import Task5 from "./Component/Task5";
+// import About from "./Router/About";
+// import Contact from "./Router/Contact";
 // import Footer from "./Router/Footer";
 // import Header from "./Router/Header";
-import Home from "./Router/Home";
+// import Home from "./Router/Home";
 // import Layout from "./Router/Layout";
 // import StateTask1 from "./Component/StateTask1";
 // import StateTask2 from "./Component/StateTask2";
@@ -23,7 +27,7 @@ import Home from "./Router/Home";
 // import StateExample from "./Component/StateExample";
 // import Bootstrap from "./Component/Bootstrap";
 // import PropsExample from "./Component/PropsExample";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -32,7 +36,11 @@ function App() {
         {/* <Postman></Postman> */}
         {/* <ImageApi></ImageApi> */}
         {/* <CardsApi></CardsApi> */}
-        <Context></Context>
+        {/* <Context></Context> */}
+        {/* <ReduxEx></ReduxEx> */}
+        {/* <UserRef /> */}
+        {/* <UseCallback /> */}
+        <UseMemo />
 
         {/* <table border={2}>
         <tr>
