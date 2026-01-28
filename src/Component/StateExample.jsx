@@ -26,5 +26,5 @@ const StateExample = () => {
     </div>
   );
 };
-  
+
 export default StateExample;
