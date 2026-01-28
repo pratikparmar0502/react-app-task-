@@ -1,6 +1,8 @@
 import "./App.css";
+import StudentsMarksheet from "./Component/redux/StudentsMarksheet";
+// import SimpleForm from "./Component/SimpleForm";
 // import UseCallback from "./Component/Hooks/UseCallback";
-import UseMemo from "./Component/Hooks/UseMemo";
+// import UseMemo from "./Component/Hooks/UseMemo";
 // import UserRef from "./Component/Hooks/UserRef";
 // import CardsApi from "./Component/CardsApi";
 // import Context from "./Component/Context";
@@ -40,7 +42,9 @@ function App() {
         {/* <ReduxEx></ReduxEx> */}
         {/* <UserRef /> */}
         {/* <UseCallback /> */}
-        <UseMemo />
+        {/* <UseMemo /> */}
+        {/* <SimpleForm></SimpleForm> */}
+        <StudentsMarksheet></StudentsMarksheet>
 
         {/* <table border={2}>
         <tr>
