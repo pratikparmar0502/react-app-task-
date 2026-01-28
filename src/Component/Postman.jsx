@@ -201,8 +201,9 @@ const Postman = () => {
             headers: {
               Authorization: token,
             },
-          }
+          },
         )
+
         .then(() => {
           toast.success("Data updated successfully ");
           setEditId(null);
