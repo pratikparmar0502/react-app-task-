@@ -1,5 +1,5 @@
 import "./App.css";
-import StudentsMarksheet from "./Component/redux/StudentsMarksheet";
+// import StudentsMarksheet from "./Component/redux/StudentsMarksheet";
 // import SimpleForm from "./Component/SimpleForm";
 // import UseCallback from "./Component/Hooks/UseCallback";
 // import UseMemo from "./Component/Hooks/UseMemo";
@@ -44,7 +44,7 @@ function App() {
         {/* <UseCallback /> */}
         {/* <UseMemo /> */}
         {/* <SimpleForm></SimpleForm> */}
-        <StudentsMarksheet></StudentsMarksheet>
+        {/* <StudentsMarksheet></StudentsMarksheet> */}
 
         {/* <table border={2}>
         <tr>
