@@ -1,4 +1,5 @@
 import "./App.css";
+import CrudForm from "./Component/All-task/CrudForm";
 // import StudentsMarksheet from "./Component/redux/StudentsMarksheet";
 // import SimpleForm from "./Component/SimpleForm";
 // import UseCallback from "./Component/Hooks/UseCallback";
@@ -45,6 +46,7 @@ function App() {
         {/* <UseMemo /> */}
         {/* <SimpleForm></SimpleForm> */}
         {/* <StudentsMarksheet></StudentsMarksheet> */}
+        <CrudForm></CrudForm>
 
         {/* <table border={2}>
         <tr>
