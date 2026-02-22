@@ -13,6 +13,8 @@ const CrudForm = () => {
           name: "",
           email: "",
           password: "",
+          image: "",
+          galary: [],
         };
 
   const handleSubmit = (values, { resetForm }) => {
@@ -21,14 +23,16 @@ const CrudForm = () => {
       return alert("Please fill all the field!");
     }
     if (editid !== null) {
-      const updatedList = [...list];
-      updatedList[editid] = values;
-      setList(updatedList);
+      // const updatedList = [...list];
+      // updatedList[editid] = values;
+      // setList(updatedList);
+
+      setList(list.map((item, index) => (index === editid ? values : item)));
       setEditid(null);
     } else {
       setList([...list, values]);
-      resetForm();
     }
+    resetForm();
   };
 
   const UpdateBtn = (index) => {
@@ -42,6 +46,8 @@ const CrudForm = () => {
       let copyData = [...list];
       copyData.splice(index, 1);
       setList(copyData);
+
+      // setList(list.filter((_, i) => i !== index));
     }
   };
 
@@ -53,32 +59,59 @@ const CrudForm = () => {
           onSubmit={handleSubmit}
           enableReinitialize={true}
         >
-          <Form>
-            <Field
-              type="text"
-              placeholder="Enter Your Name"
-              className="w-25"
-              name="name"
-            />{" "}
-            <br />
-            <Field
-              type="text"
-              placeholder="Enter Your Email"
-              className="w-25"
-              name="email"
-            />{" "}
-            <br />
-            <Field
-              type="text"
-              placeholder="Enter Your Password"
-              className="w-25"
-              name="password"
-            />{" "}
-            <br />
-            <button type="submit" className="py-2 px-3 fw-bold w-25 fs-5">
-              {editid ? "Update" : "Submit"}
-            </button>
-          </Form>
+          {({ setFieldValue }) => (
+            <Form>
+              <Field
+                type="text"
+                placeholder="Enter Your Name"
+                className="w-25"
+                name="name"
+              />{" "}
+              <br />
+              <Field
+                type="text"
+                placeholder="Enter Your Email"
+                className="w-25"
+                name="email"
+              />{" "}
+              <br />
+              <Field
+                type="text"
+                placeholder="Enter Your Password"
+                className="w-25"
+                name="password"
+              />{" "}
+              <br />
+              <label htmlFor="">Single File</label>
+              <input
+                type="file"
+                name="image"
+                id=""
+                onChange={(e) =>
+                  setFieldValue("image", URL.createObjectURL(e.target.files[0]))
+                }
+              />
+              <br />
+              <label htmlFor="">Multiple File (3)</label>
+              <input
+                type="file"
+                multiple
+                name="galary"
+                id=""
+                onChange={(e) => {
+                  let files = Array.from(e.target.files);
+                  setFieldValue(
+                    "galary",
+                    files.map((f) => URL.createObjectURL(f)),
+                  );
+                }}
+              />
+              <br />
+              <button type="submit" className="py-2 px-3 fw-bold w-25 fs-5">
+                {editid ? "Update" : "Submit"}
+              </button>
+            </Form>
+          )}
         </Formik>
 
         <table className="my-5">
@@ -87,6 +120,8 @@ const CrudForm = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Password</th>
+              <th>Image</th>
+              <th>Galary</th>
               <th colSpan={2}>Actions</th>
             </tr>
           </thead>
@@ -96,6 +131,20 @@ const CrudForm = () => {
                 <td>{item.name}</td>
                 <td>{item.email}</td>
                 <td>{item.password}</td>
+                <td>
+                  <img width="80px" src={item.image} alt="" />
+                </td>
+                <td>
+                  {item.galary.map((image) => (
+                    <img
+                      src={image}
+                      width="40px"
+                      style={{ margin: "2px" }}
+                      alt="imagesss"
+                      key={image}
+                    />
+                  ))}
+                </td>
                 <td>
                   <button onClick={() => UpdateBtn(index)}>Update</button>
                 </td>
