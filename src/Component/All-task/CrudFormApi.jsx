@@ -6,7 +6,6 @@ import { Container } from "react-bootstrap";
 const CrudFormApi = () => {
   const [list, setList] = useState([]);
   const [editid, setEditid] = useState(null);
-  //   const [formData, setFormData] = useState(initialValues);
   const token = "1xd6BQmCZn05codn";
 
   const ini =
