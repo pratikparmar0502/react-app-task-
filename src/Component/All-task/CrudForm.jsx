@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 const CrudForm = () => {
   const [list, setList] = useState([]);
   const [editid, setEditid] = useState(null);
+  const [search, setSearch] = useState("");
 
   const ini =
     editid !== null
@@ -113,6 +114,16 @@ const CrudForm = () => {
             </Form>
           )}
         </Formik>
+        <div>
+          <input
+            type="search"
+            name="search"
+            id=""
+            placeholder="Search here..."
+            className="form-control w-25 mx-auto my-3"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
 
         <table className="my-5">
           <thead>
@@ -126,33 +137,43 @@ const CrudForm = () => {
             </tr>
           </thead>
           <tbody>
-            {list.map((item, index) => (
-              <tr key={index}>
-                <td>{item.name}</td>
-                <td>{item.email}</td>
-                <td>{item.password}</td>
-                <td>
-                  <img width="80px" src={item.image} alt="" />
-                </td>
-                <td>
-                  {item.galary.map((image) => (
-                    <img
-                      src={image}
-                      width="40px"
-                      style={{ margin: "2px" }}
-                      alt="imagesss"
-                      key={image}
-                    />
-                  ))}
-                </td>
-                <td>
-                  <button onClick={() => UpdateBtn(index)}>Update</button>
-                </td>
-                <td>
-                  <button onClick={() => DeleteBtn(index)}>Delete</button>
-                </td>
-              </tr>
-            ))}
+            {list
+              .filter((item) => {
+                if (search === "") {
+                  return item;
+                } else if (
+                  item.name.toLowerCase().includes(search.toLowerCase())
+                ) {
+                  return item;
+                }
+              })
+              .map((item, index) => (
+                <tr key={index}>
+                  <td>{item.name}</td>
+                  <td>{item.email}</td>
+                  <td>{item.password}</td>
+                  <td>
+                    <img width="80px" src={item.image} alt="" />
+                  </td>
+                  <td>
+                    {item.galary.map((image) => (
+                      <img
+                        src={image}
+                        width="40px"
+                        style={{ margin: "2px" }}
+                        alt="imagesss"
+                        key={image}
+                      />
+                    ))}
+                  </td>
+                  <td>
+                    <button onClick={() => UpdateBtn(index)}>Update</button>
+                  </td>
+                  <td>
+                    <button onClick={() => DeleteBtn(index)}>Delete</button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </Container>

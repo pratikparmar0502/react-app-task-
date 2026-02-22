@@ -44,10 +44,10 @@ const CrudFormApi = () => {
     }
 
     if (editid != null) {
-      const realID = list[editid]._id;
+      // const realID = list[editid]._id;
       axios
         .patch(
-          `https://generateapi.techsnack.online/api/CrudForm/${realID}`,
+          `https://generateapi.techsnack.online/api/CrudForm/${list[editid]._id}`,
           formdata,
           {
             headers: {
@@ -103,6 +103,7 @@ const CrudFormApi = () => {
   const Updatebtn = (index) => {
     setEditid(index);
   };
+
   const Deletebtn = (_id) => {
     let isDel = window.confirm("Are you sure you want to delete?");
     if (isDel) {
