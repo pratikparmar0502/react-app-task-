@@ -1,6 +1,7 @@
 import "./App.css";
+import Demo from "./Component/All-task/Demo";
 // import CrudForm from "./Component/All-task/CrudForm";
-import CrudFormApi from "./Component/All-task/CrudFormApi";
+// import CrudFormApi from "./Component/All-task/CrudFormApi";
 // import StudentsMarksheet from "./Component/redux/StudentsMarksheet";
 // import SimpleForm from "./Component/SimpleForm";
 // import UseCallback from "./Component/Hooks/UseCallback";
@@ -48,7 +49,8 @@ function App() {
         {/* <SimpleForm></SimpleForm> */}
         {/* <StudentsMarksheet></StudentsMarksheet> */}
         {/* <CrudForm></CrudForm> */}
-        <CrudFormApi></CrudFormApi>
+        {/* <CrudFormApi></CrudFormApi> */}
+        <Demo></Demo>
 
         {/* <table border={2}>
         <tr>
