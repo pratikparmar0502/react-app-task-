@@ -1,5 +1,5 @@
 import "./App.css";
-import DemoApiGalary from "./Component/All-task/DemoApiGalary";
+// import DemoApiGalary from "./Component/All-task/DemoApiGalary";
 // import Demo from "./Component/All-task/Demo";
 // import DemoApi from "./Component/All-task/DemoApi";
 // import CrudForm from "./Component/All-task/CrudForm";
@@ -54,7 +54,7 @@ function App() {
         {/* <CrudFormApi></CrudFormApi> */}
         {/* <Demo></Demo> */}
         {/* <DemoApi></DemoApi> */}
-        <DemoApiGalary></DemoApiGalary>
+        {/* <DemoApiGalary></DemoApiGalary> */}
 
         {/* <table border={2}>
         <tr>
