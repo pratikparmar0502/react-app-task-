@@ -1,5 +1,7 @@
 import "./App.css";
-import Demo from "./Component/All-task/Demo";
+import DemoApiGalary from "./Component/All-task/DemoApiGalary";
+// import Demo from "./Component/All-task/Demo";
+// import DemoApi from "./Component/All-task/DemoApi";
 // import CrudForm from "./Component/All-task/CrudForm";
 // import CrudFormApi from "./Component/All-task/CrudFormApi";
 // import StudentsMarksheet from "./Component/redux/StudentsMarksheet";
@@ -50,7 +52,9 @@ function App() {
         {/* <StudentsMarksheet></StudentsMarksheet> */}
         {/* <CrudForm></CrudForm> */}
         {/* <CrudFormApi></CrudFormApi> */}
-        <Demo></Demo>
+        {/* <Demo></Demo> */}
+        {/* <DemoApi></DemoApi> */}
+        <DemoApiGalary></DemoApiGalary>
 
         {/* <table border={2}>
         <tr>
