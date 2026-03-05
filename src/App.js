@@ -1,4 +1,5 @@
 import "./App.css";
+// import ContextApi from "./Component/All-task/ContextApi";
 // import DemoApiGalary from "./Component/All-task/DemoApiGalary";
 // import Demo from "./Component/All-task/Demo";
 // import DemoApi from "./Component/All-task/DemoApi";
@@ -35,6 +36,10 @@ import "./App.css";
 // import Bootstrap from "./Component/Bootstrap";
 // import PropsExample from "./Component/PropsExample";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./Component/context api/Login";
+import Navbar from "./Component/context api/Navbar";
+import Register from "./Component/context api/Register";
 
 function App() {
   return (
@@ -55,6 +60,18 @@ function App() {
         {/* <Demo></Demo> */}
         {/* <DemoApi></DemoApi> */}
         {/* <DemoApiGalary></DemoApiGalary> */}
+
+        <Router>
+          <Navbar></Navbar>
+          <Switch>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
+          </Switch>
+        </Router>
 
         {/* <table border={2}>
         <tr>
@@ -117,6 +134,7 @@ function App() {
           Gujarati="80"
         />
       </table> */}
+
         {/* // <Api
         //   imageUrl="https://rickandmortyapi.com/api/character/avatar/165.jpeg"
         //   cardName="Investigator Rick"
