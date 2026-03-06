@@ -1,14 +1,24 @@
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
 import { Field, Form, Formik } from "formik";
+import { useContext } from "react";
+import { AuthContext } from "./ContextApi";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const Login = () => {
+  const { setUser } = useContext(AuthContext);
+  const history = useHistory();
   const formData = {
     email: "",
     password: "",
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (values) => {
+    console.log("Login Success: ", values);
+    setUser(values);
+    history.push("/");
+  };
 
   return (
     <>
@@ -27,7 +37,7 @@ const Login = () => {
               Submit
             </Button>
             <span className="mt-3">
-              Don't have an account? <a href="/register">Register</a>
+              Don't have an account? <Link to="/register">Register</Link>
             </span>
           </Form>
         </Formik>

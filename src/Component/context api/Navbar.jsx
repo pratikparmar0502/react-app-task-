@@ -6,8 +6,11 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./ContextApi";
 
 const Navbar = () => {
+  const { user, setUser } = useContext(AuthContext);
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -23,25 +26,40 @@ const Navbar = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Coder
+              {user ? `Hi ${user.email}` : "Coder"}
             </Typography>
 
-            <Button
-              variant="contained"
-              sx={{ bgcolor: "white", color: "blue", m: 1 }}
-              component={Link}
-              to="/login"
-            >
-              Login
-            </Button>
-            <Button
-              variant="contained"
-              sx={{ bgcolor: "white", color: "blue", m: 1 }}
-              component={Link}
-              to="/register"
-            >
-              Register
-            </Button>
+            {user ? (
+              <>
+                <Button
+                  variant="contained"
+                  color="inherit"
+                  sx={{ bgcolor: "white", color: "blue", m: 1 }}
+                  onClick={() => setUser(null)}
+                >
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  variant="contained"
+                  sx={{ bgcolor: "white", color: "blue", m: 1 }}
+                  component={Link}
+                  to="/login"
+                >
+                  Login
+                </Button>
+                <Button
+                  variant="contained"
+                  sx={{ bgcolor: "white", color: "blue", m: 1 }}
+                  component={Link}
+                  to="/register"
+                >
+                  Register
+                </Button>
+              </>
+            )}
           </Toolbar>
         </AppBar>
       </Box>
