@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Button, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const Tasksss = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [list, setList] = useState([]);
-  const [editid, setEditid] = useState();
+  const [editid, setEditid] = useState(null);
+  const [search, setSearch] = useState("");
 
   const handleSubmit = () => {
     // console.log(name);
@@ -53,6 +54,10 @@ const Tasksss = () => {
   //   delData(index);
   // };
 
+  const filteredList = list.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase()),
+  );
+
   return (
     <>
       <br />
@@ -84,6 +89,13 @@ const Tasksss = () => {
 
         <br />
         <br />
+        <input
+          type="search"
+          name="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search here..."
+        />
 
         <table border={1}>
           <thead>
@@ -108,10 +120,20 @@ const Tasksss = () => {
               >
                 Surname
               </td>
+              <td
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  padding: "7px",
+                  border: "1px solid black",
+                }}
+              >
+                Actions
+              </td>
             </tr>
           </thead>
           <tbody>
-            {list.map((i, index) => (
+            {filteredList.map((i, index) => (
               <tr key={index}>
                 <td
                   style={{
@@ -150,6 +172,17 @@ const Tasksss = () => {
             ))}
           </tbody>
         </table>
+        {list.length > 0 && filteredList.length === 0 && (
+          <p style={{ color: "red", marginTop: "20px", textAlign: "center" }}>
+            No guest found matching "{search}"
+          </p>
+        )}
+
+        {list.length === 0 && (
+          <p style={{ marginTop: "20px", color: "gray" }}>
+            The guest list is empty. Add someone!
+          </p>
+        )}
       </Container>
     </>
   );
