@@ -36,10 +36,11 @@ import "./App.css";
 // import Bootstrap from "./Component/Bootstrap";
 // import PropsExample from "./Component/PropsExample";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from "./Component/context api/Login";
-import Navbar from "./Component/context api/Navbar";
-import Register from "./Component/context api/Register";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import Login from "./Component/context api/Login";
+// import Navbar from "./Component/context api/Navbar";
+// import Register from "./Component/context api/Register";
+import Tasksss from "./Component/All-task/Tasksss";
 
 function App() {
   return (
@@ -60,8 +61,9 @@ function App() {
         {/* <Demo></Demo> */}
         {/* <DemoApi></DemoApi> */}
         {/* <DemoApiGalary></DemoApiGalary> */}
+        <Tasksss></Tasksss>
 
-        <Router>
+        {/* <Router>
           <Navbar></Navbar>
           <Switch>
             <Route path="/login">
@@ -71,7 +73,7 @@ function App() {
               <Register></Register>
             </Route>
           </Switch>
-        </Router>
+        </Router> */}
 
         {/* <table border={2}>
         <tr>
