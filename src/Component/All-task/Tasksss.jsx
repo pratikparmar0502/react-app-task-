@@ -179,7 +179,7 @@ const Tasksss = () => {
         )}
 
         {list.length === 0 && (
-          <p style={{ marginTop: "20px", color: "gray" }}>
+          <p style={{ marginTop: "20px", color: "gray", textAlign: "center" }}>
             The guest list is empty. Add someone!
           </p>
         )}
