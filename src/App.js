@@ -1,4 +1,5 @@
 import "./App.css";
+import FinalTask from "./Component/All-task/FinalTask";
 // import ContextApi from "./Component/All-task/ContextApi";
 // import DemoApiGalary from "./Component/All-task/DemoApiGalary";
 // import Demo from "./Component/All-task/Demo";
@@ -40,7 +41,7 @@ import "./App.css";
 // import Login from "./Component/context api/Login";
 // import Navbar from "./Component/context api/Navbar";
 // import Register from "./Component/context api/Register";
-import Tasksss from "./Component/All-task/Tasksss";
+// import Tasksss from "./Component/All-task/Tasksss";
 
 function App() {
   return (
@@ -61,7 +62,8 @@ function App() {
         {/* <Demo></Demo> */}
         {/* <DemoApi></DemoApi> */}
         {/* <DemoApiGalary></DemoApiGalary> */}
-        <Tasksss></Tasksss>
+        {/* <Tasksss></Tasksss> */}
+        <FinalTask />
 
         {/* <Router>
           <Navbar></Navbar>
