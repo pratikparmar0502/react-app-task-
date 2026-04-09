@@ -744,3 +744,235 @@
 // ===================================================================================================================================
 // ===================================================================================================================================
 // ===================================================================================================================================
+
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import React, { useState } from "react";
+import * as yup from "yup";
+
+const FinalTask = () => {
+  const [list, setList] = useState([]);
+  const [editIndex, setEditindex] = useState(null);
+
+  // useEffect(() => {
+  //   const savedData = localStorage.getItem("users");
+  //   if (savedData) {
+  //     setList(JSON.parse(savedData));
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem("users", JSON.stringify(list));
+  // }, [list]);
+
+  const formData =
+    editIndex !== null
+      ? list[editIndex]
+      : {
+          username: "",
+          email: "",
+          password: "",
+          profile: null,
+          galary: [],
+        };
+
+  const validationSchema = yup.object({
+    username: yup.string().required("Required"),
+    email: yup.string().required("Required"),
+    password: yup
+      .string()
+      .min(8, "Minimum 8")
+      .max(16, "Maximum 16")
+      .required("Required"),
+    profile: yup.mixed().required("Required"),
+    galary: yup
+      .array()
+      .min(2, "Minimum 2")
+      .max(3, "Maximum 3")
+      .required("Required"),
+  });
+
+  const handleSubmit = (values, { resetForm }) => {
+    if (editIndex !== null) {
+      const updatedList = [...list];
+      updatedList[editIndex] = values;
+      setList(updatedList);
+      setEditindex(null);
+    } else {
+      setList([...list, values]);
+    }
+    resetForm();
+  };
+
+  const delBtn = (delindex) => {
+    const isConfirmed = window.confirm("Are you sure?");
+    if (isConfirmed) {
+      const filteredData = list.filter((i, index) => index !== delindex);
+      setList(filteredData);
+    }
+  };
+
+  const editBtn = (index) => {
+    setEditindex(index);
+  };
+
+  return (
+    <Container className="text-center p-5">
+      <Formik
+        onSubmit={handleSubmit}
+        initialValues={formData}
+        enableReinitialize={true}
+        validationSchema={validationSchema}
+      >
+        {({ setFieldValue, values }) => (
+          <Form>
+            <Field
+              name="username"
+              type="text"
+              placeholder="Username"
+              className="py-2 px-3 w-25"
+            />
+            <ErrorMessage
+              name="username"
+              component="div"
+              style={{ color: "red" }}
+            />
+            <br />
+
+            <Field
+              name="email"
+              type="text"
+              placeholder="Email"
+              className="py-2 px-3 w-25"
+            />
+            <ErrorMessage
+              name="email"
+              component="div"
+              style={{ color: "red" }}
+            />
+            <br />
+
+            <Field
+              name="password"
+              type="text"
+              placeholder="Password"
+              className="py-2 px-3 w-25"
+            />
+            <ErrorMessage
+              name="password"
+              component="div"
+              style={{ color: "red" }}
+            />
+            <br />
+            <input
+              type="file"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                const imgURL = URL.createObjectURL(file);
+                setFieldValue("profile", imgURL);
+              }}
+            />
+            {values.profile && (
+              <img
+                src={
+                  typeof values.profile === "string"
+                    ? values.profile
+                    : URL.createObjectURL(values.profile)
+                }
+                width="50px"
+                alt="profile preview"
+              />
+            )}
+            <ErrorMessage
+              name="profile"
+              component="div"
+              style={{ color: "red" }}
+            />
+            <br />
+            <input
+              type="file"
+              multiple
+              onChange={(e) => {
+                const files = Array.from(e.target.files);
+                const imgURLs = files.map((file) => URL.createObjectURL(file));
+                setFieldValue("galary", imgURLs);
+              }}
+            />
+            {values.galary.map((img, i) => (
+              <img
+                src={img}
+                key={i}
+                width="50px"
+                alt="galary preview"
+                style={{ margin: "5px" }}
+              />
+            ))}
+            <ErrorMessage
+              name="galary"
+              component="div"
+              style={{ color: "red" }}
+            />
+            <br />
+            <Button
+              type="submit"
+              variant="contained"
+              className="py-2 px-3 w-25"
+            >
+              {editIndex !== null ? "Update" : "Submit"}
+            </Button>
+          </Form>
+        )}
+      </Formik>
+
+      <table className="my-5">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Profile</th>
+            <th>Galary</th>
+            <th colSpan={2}>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {list.map((item, index) => (
+            <tr key={index}>
+              <td>{item.username}</td>
+              <td>{item.email}</td>
+              <td>{item.password}</td>
+              <td>
+                <img
+                  src={item.profile}
+                  alt="profile"
+                  width="50px"
+                  style={{ objectFit: "cover", margin: "5px" }}
+                />
+              </td>
+              <td>
+                {item.galary.map((img, i) => (
+                  <img
+                    src={img}
+                    key={i}
+                    alt="galary"
+                    width="50px"
+                    style={{ objectFit: "cover", margin: "5px" }}
+                  />
+                ))}
+              </td>
+              <td>
+                <button onClick={() => editBtn(index)}>Update</button>
+              </td>
+              <td>
+                <button onClick={() => delBtn(index)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </Container>
+  );
+};
+
+export default FinalTask;
