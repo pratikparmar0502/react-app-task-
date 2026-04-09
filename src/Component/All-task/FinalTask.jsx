@@ -583,3 +583,164 @@
 // };
 
 // export default FinalTask;
+
+// ===================================================================================================================================
+// ===================================================================================================================================
+// ===================================================================================================================================
+// ===================================================================================================================================
+// ===================================================================================================================================
+
+// import Button from "@mui/material/Button";
+// import Container from "@mui/material/Container";
+// import { ErrorMessage, Field, Form, Formik } from "formik";
+// import React, { useState } from "react";
+// import * as yup from "yup";
+
+// const FinalTask = () => {
+//   const [list, setList] = useState([]);
+//   const [editIndex, setEditindex] = useState(null);
+
+//   const formData =
+//     editIndex !== null
+//       ? list[editIndex]
+//       : {
+//           username: "",
+//           email: "",
+//           password: "",
+//         };
+
+//   const validationSchema = yup.object({
+//     username: yup.string().required("Required"),
+//     email: yup.string().required("Required"),
+//     password: yup
+//       .string()
+//       .min(8, "Minimum 8")
+//       .max(16, "Maximum 16")
+//       .required("Required"),
+//   });
+
+//   const handleSubmit = (values, { resetForm }) => {
+//     console.log(values);
+
+//     if (editIndex !== null) {
+//       const updatedList = [...list];
+//       updatedList[editIndex] = values;
+//       setList(updatedList);
+//       setEditindex(null);
+//     } else {
+//       setList([...list, values]);
+//     }
+//     resetForm();
+//   };
+
+//   const delBtn = (delindex) => {
+//     console.log(delindex);
+
+//     const isConfirmed = window.confirm("Are you sure?");
+//     if (isConfirmed) {
+//       const filteredData = list.filter((i, index) => index !== delindex);
+//       setList(filteredData);
+//     }
+//   };
+
+//   const editBtn = (index) => {
+//     console.log(index);
+
+//     setEditindex(index);
+//   };
+
+//   return (
+//     <>
+//       <Container className="text-center p-5">
+//         <Formik
+//           onSubmit={handleSubmit}
+//           initialValues={formData}
+//           enableReinitialize={true}
+//           validationSchema={validationSchema}
+//         >
+//           {({ setFieldValue }) => (
+//             <Form>
+//               <Field
+//                 name="username"
+//                 type="text"
+//                 placeholder="Username"
+//                 className="py-2 px-3 w-25"
+//               />
+//               <ErrorMessage
+//                 name="username"
+//                 component="div"
+//                 style={{ color: "red" }}
+//               />
+//               <br />
+//               <Field
+//                 name="email"
+//                 type="text"
+//                 placeholder="Email"
+//                 className="py-2 px-3 w-25"
+//               />
+//               <ErrorMessage
+//                 name="email"
+//                 component="div"
+//                 style={{ color: "red" }}
+//               />
+//               <br />
+//               <Field
+//                 name="password"
+//                 type="text"
+//                 placeholder="Password"
+//                 className="py-2 px-3 w-25"
+//               />
+//               <ErrorMessage
+//                 name="password"
+//                 component="div"
+//                 style={{ color: "red" }}
+//               />
+//               <br />
+//               <Button
+//                 type="submit"
+//                 variant="contained"
+//                 className="py-2 px-3 w-25"
+//               >
+//                 {editIndex !== null ? "Update" : "Submit"}
+//               </Button>
+//             </Form>
+//           )}
+//         </Formik>
+
+//         <table className="my-5">
+//           <thead>
+//             <tr>
+//               <th>Name</th>
+//               <th>Email</th>
+//               <th>Password</th>
+//               <th colSpan={2}>Actions</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {list.map((item, index) => (
+//               <tr key={index}>
+//                 <td>{item.username}</td>
+//                 <td>{item.email}</td>
+//                 <td>{item.password}</td>
+//                 <td>
+//                   <button onClick={() => editBtn(index)}>Update</button>
+//                 </td>
+//                 <td>
+//                   <button onClick={() => delBtn(index)}>Delete</button>
+//                 </td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       </Container>
+//     </>
+//   );
+// };
+
+// export default FinalTask;
+
+// ===================================================================================================================================
+// ===================================================================================================================================
+// ===================================================================================================================================
+// ===================================================================================================================================
+// ===================================================================================================================================
