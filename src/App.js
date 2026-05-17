@@ -1,5 +1,7 @@
 import "./App.css";
-import FinalTask from "./Component/All-task/FinalTask";
+import Card_Game from "./Component/Card_Game";
+// import FinalTask from "./Component/All-task/FinalTask";
+// import TicTacToe from "./Component/TicTacToe";
 // import ContextApi from "./Component/All-task/ContextApi";
 // import DemoApiGalary from "./Component/All-task/DemoApiGalary";
 // import Demo from "./Component/All-task/Demo";
@@ -63,7 +65,9 @@ function App() {
         {/* <DemoApi></DemoApi> */}
         {/* <DemoApiGalary></DemoApiGalary> */}
         {/* <Tasksss></Tasksss> */}
-        <FinalTask />
+        {/* <FinalTask /> */}
+        {/* <TicTacToe /> */}
+        <Card_Game />
 
         {/* <Router>
           <Navbar></Navbar>
